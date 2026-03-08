@@ -4,8 +4,6 @@
 package app
 
 import (
-	"fmt"
-
 	"github.com/NVIDIA/KAI-scheduler/pkg/common/constants"
 	"github.com/spf13/pflag"
 
@@ -68,7 +66,7 @@ func InitOptions() *Options {
 		"Specifies if the GPU sharing is enabled")
 	fs.StringVar(&options.GPUPodRuntimeClassName,
 		"gpu-pod-runtime-class-name", constants.DefaultRuntimeClassName,
-		fmt.Sprintf("Runtime class to be set for GPU pods (defaults to %s) Set to empty string to disable", constants.DefaultRuntimeClassName))
+		"Runtime class to be set for GPU pods. Defaults to empty (disabled). Set to 'nvidia' or another runtime class name to enable injection")
 
 	utilfeature.DefaultMutableFeatureGate.AddFlag(fs)
 
